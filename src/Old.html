@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prot Defender 反病毒套件 - 免费杀毒软件解决方案</title>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="https://unpkg.com/sober@0.7.1/dist/sober.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #1a1a2e;
+            color: #fff;
+            padding: 1rem 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #16c79a;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .cta-button {
+            /* display: inline-block; */
+            /* background-color: #16c79a; */
+            /* color: #fff; */
+            padding: 12px 30px;
+            /* border-radius: 5px; */
+            /* text-decoration: none; */
+            font-weight: bold;
+            /* transition: background-color 0.3s ease; */
+            /* cursor: pointer; */
+        }
+        /* .cta-button:hover {
+            background-color: #13a884;
+        } */
+
+        .features {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+        }
+        .features h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .feature-item i {
+            font-size: 3rem;
+            color: #16c79a;
+            margin-bottom: 20px;
+        }
+        .feature-item h3 {
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        .contact h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #1a1a2e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto; 
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .countdown-text {
+            margin-bottom: 10px;
+        }
+        .developers {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        .developers h2 {
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        .developers p, .developers ul {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .developers ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .developers li {
+            margin: 10px 0;
+        }
+
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Prot Defender 反病毒套件</div>
+            <ul class="nav-links">
+                <li><a href="#features">功能</a></li>
+                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#developers">开发团队</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>保护您的数字世界</h1>
+            <p>Prot Defender 反病毒套件提供免费的高级杀毒和网络安全解决方案</p>
+            <!-- <s-button style="background: #009688; color: #fff; padding: 0 16px; width: 140px;" onclick="showAgreement()"><s-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path></svg></s-icon></s-icon>下载 </s-button> -->
+            
+            <s-dialog><s-button style="background: #009688; color: #fff; padding: 0 16px; width: 140px;" onclick="showAgreement()" slot="trigger"> <s-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"></path></svg></s-icon>下载 </s-button>
+                <div slot="headline"> 用户协议 </div>
+                <div slot="text" style="color: #333; text-align: left; margin-left: 2em;margin-right: 1em;"><!-- 用户协议 左对齐 边距10px -->
+                <p>欢迎使用Prot Defender杀毒软件。在下载和使用我们的软件之前，请仔细阅读以下协议：<br><br>
+                        1.本软件为免费使用，但版权归Prot Defender所有。<br>
+                        2.用户不得对软件进行反编译、反向工程或其他试图获取源代码的行为。<br>
+                        3.用户在使用过程中发现任何问题，可以通过官方渠道向我们反馈。<br>
+                        4.我们会收集必要的使用数据以改进服务，但承诺保护用户隐私。<br>
+                        5.本协议在法律允许的范围内有效，并可能随时更新。<br>
+                </p>                    
+                </div>
+                <s-button slot="action" type="text">不同意</s-button>
+                <s-button slot="action" type="text" id="downloadButton" style="width: 100px;">同意并下载</s-button>
+            </s-dialog>
+            <!-- <button class="cta-button" ><iconify-icon icon="mdi:download" class="dl-icon"></iconify-icon> 立即下载</button> -->
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>强大功能</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i><iconify-icon icon="mdi:shield-check"></iconify-icon></i>
+                    <h3>实时保护</h3>
+                    <p>全天候监控，实时防御各种威胁</p>
+                </div>
+                <div class="feature-item">
+                    <i><iconify-icon icon="mdi:file-cancel"></iconify-icon></i>
+                    <h3>病毒拦截</h3>
+                    <p>在病毒运行前拦截，保护您的系统安全</p>
+                </div>
+                <div class="feature-item">
+                    <i><iconify-icon icon="mdi:magnify-expand"></iconify-icon></i>
+                    <h3>智能扫描</h3>
+                    <p>快速高效地检测和清除恶意软件</p>
+                </div>
+                <div class="feature-item">
+                    <i><iconify-icon icon="mdi:web"></iconify-icon></i>
+                    <h3>网络防护</h3>
+                    <p>安全浏览，防止网络钓鱼和欺诈</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>联系我们</h2>
+            <p>如有任何问题，请发送邮件至：</p>
+            <p><a href="mailto:xxxx@xxxx.com">xxxx@xxxx.com</a></p>
+        </div>
+    </section>
+    <section id="developers" class="developers">
+        <div class="container">
+            <h2>开发团队</h2>
+            <p>我们致力于提供最前沿的安全解决方案。</p>
+            <ul>
+                <li>uummyygg - 界面和查杀</li>
+                <li>卡哇伊 - 驱动开发</li>
+                <li>KALI_MC - 驱动开发</li>
+            </ul>
+        </div>
+    </section>
+    
+    <style>
+
+    </style>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Prot Defender. 保留所有权利。</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+
+
+
+        document.getElementById("downloadButton").onclick = function() {
+            alert("开始下载Prot Defender杀毒软件！");
+
+            var modal = document.getElementById("agreementModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
