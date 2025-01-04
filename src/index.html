@@ -143,6 +143,15 @@
                 function isDarkMode() {
                     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
                 }
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                    const newColorScheme = event.matches ? "dark" : "light";
+                    console.log(`系统主题变为 ${newColorScheme} 模式`);
+                    if (newColorScheme === "dark") {
+                        document.getElementById("dark-mode-switch").checked = true;
+                    } else {
+                        document.getElementById("dark-mode-switch").checked = false;
+                    }
+                });
                 if (isDarkMode() === true) {
                     
                     document.getElementById("dark-mode-switch").checked = true;
