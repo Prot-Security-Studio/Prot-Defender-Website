@@ -140,7 +140,10 @@
                 <mdui-switch id="dark-mode-switch" unchecked-icon="light_mode" checked-icon="dark_mode"></mdui-switch>
             </mdui-tooltip>
             <script>
-                if (mdui.getTheme() === "dark") {
+                function isDarkMode() {
+                    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                }
+                if (isDarkMode() === true) {
                     
                     document.getElementById("dark-mode-switch").checked = true;
         
