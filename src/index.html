@@ -17,6 +17,15 @@
 
     <!-- 图标 -->
     <link href="icon.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FM7Q7LZ61S"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FM7Q7LZ61S');
+    </script>
 
 
 
@@ -89,7 +98,8 @@
 </head>
 
 <body>
-    <mdui-navigation-drawer close-on-overlay-click id="drawer" modal>
+    <mdui-navigation-drawer close-on-overlay-click id="drawer" modalclass="drawer" close-on-esc="" close-on-overlay-click="" style="--mdui-motion-duration-long2: 500ms; position: absolute; top: 64px; bottom: 0px; left: 0px; display: block;" open="" placement="left" order="2">
+
         <mdui-list>
             <mdui-collapse accordion>
                 <mdui-collapse-item>
