@@ -29,15 +29,7 @@
 
 
     <style>
-        body{  
-            background-image:url('https://img1.lookpic.cn/2025/01/11/bg-1f4c09d6483421f28.png');
-            background-repeat:no-repeat;
-          background-size: 100% 100%;
-          background-position: center;
-          background-attachment: fixed; /* 背景图片固定 */
-          min-height: 100vh; /* 至少为视口高度 */
 
-        }
         .hero {
             /* background: linear-gradient(135deg, #1a1a2e, #16213e); */
             /* color: #fff; */
@@ -103,65 +95,71 @@
             }
 
     </style>
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I') || (event.ctrlKey && event.key === 'U')) {
+                event.preventDefault(); // 尝试阻止开发者工具的打开
+
+                mdui.alert({
+                    headline: "嗨嗨嗨",
+                    description: "给开发者工具仙人的惊喜！",
+                    icon: "celebration",
+                    confirmText: "OK",
+                    // onConfirm: () => console.log("confirmed"),
+                });
+                // 添加背景样式
+                var style = document.createElement('style');
+                style.innerHTML = `
+                    body {  
+                        background-image: url('bg.png');
+                        background-repeat: no-repeat;
+                        background-size: 100% 100%;
+                        background-position: center;
+                        background-attachment: fixed; 
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // 播放音乐
+                var audio = new Audio('bgm.mp3');
+                audio.play().catch(error => {
+                    console.error('音乐播放失败:', error);
+                    showAudioPlayer(audio);
+                });
+
+            }
+        });
+
+        // 尝试阻止通过右键菜单打开开发者工具
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        function showAudioPlayer(audio) {
+            // 创建音频播放器
+            var audioPlayer = document.createElement('div');
+            audioPlayer.className = 'audio-player';
+            audioPlayer.innerHTML = `
+                <audio id="bgm" controls>
+                    <source src="bgm.mp3" type="audio/mpeg">
+                    您的浏览器不支持 audio 元素。
+                </audio>
+            `;
+            document.body.appendChild(audioPlayer);
+
+            // 设置音频播放器的音频源并尝试播放
+            var audioElement = audioPlayer.querySelector('audio');
+            audioElement.src = audio.src;
+            audioElement.play().catch(error => {
+                console.error('音频播放仍然失败:', error);
+            });
+        }
+    </script>
 </head>
 
 <body>
-    <mdui-fab icon="music_note" onclick="togglePlay()" id="audioControl" style="position: fixed;top: 20px;right: 20px;z-index: 114514;"></mdui-fab>
-    <audio id="myAudio" autoplay>
-        <source id="audioSource" src="" type="audio/mpeg">
-        您的浏览器不支持 audio 元素。
-    </audio>
-    <script>
-        // 定义音乐文件路径（只有一首音乐的情况）
-        var musicFile = "bgm.mp3";
+    
 
-        // 获取音频元素和按钮
-        var audio = document.getElementById("myAudio");
-        var audioSource = document.createElement('source');
-        audioSource.src = musicFile;
-        audio.appendChild(audioSource);
-        var button1 = document.getElementById("audioControl");
-
-        // 切换播放状态的函数
-        function togglePlay() {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    button1.icon = "music_note";
-                }).catch((error) => {
-                    console.error("尝试播放音频失败: ", error);
-                    button1.icon = "music_off";
-                    mdui.alert({
-                        icon: "volume_off",
-                        headline: "音乐播放被拦截",
-                        description: "请检查浏览器设置或手动尝试播放",
-                        confirmText: "好",
-                        onConfirm: () => console.log("confirmed"),
-                    });
-                });
-            } else {
-                audio.pause();
-                button1.icon = "music_off";
-            }
-        }
-
-        // 添加 canplay 事件监听器
-        audio.addEventListener("canplay", function () {
-            console.log("音频可以播放");
-        });
-
-        // 添加 error 事件监听器
-        audio.addEventListener("error", function (event) {
-            console.error("音频加载或播放出错: ", event.target.error.code, event.target.error.message);
-            button1.icon = "music_off";
-            mdui.alert({
-                icon: "volume_off",
-                headline: "音频出现问题",
-                description: "请检查音频文件是否存在及格式是否正确",
-                confirmText: "好",
-                onConfirm: () => console.log("confirmed"),
-            });
-        });
-    </script>
     <mdui-navigation-drawer close-on-overlay-click close-on-esc id="drawer" modal>
         <mdui-list>
             <mdui-collapse accordion>
