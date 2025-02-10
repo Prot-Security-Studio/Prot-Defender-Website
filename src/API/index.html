@@ -1,0 +1,69 @@
+<!--
+ * @Author: shu-shu-1 3458222@qq.com
+ * @Date: 2025-02-10 19:42:37
+ * @LastEditors: shu-shu-1 3458222@qq.com
+ * @LastEditTime: 2025-02-10 19:51:48
+ * @FilePath: \A小树壁纸d:\code\Prot-Defender-Website\src\API\index.html
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by shu-shu-1 3458222@qq.com, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html  lang="zh-CN" class="mdui-theme-auto">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="mdui.css">
+    <title>Prot Defender API文档</title>
+<body>
+    <div class="mdui-prose" style="margin: 20px;">
+        <h1>Prot Defender API文档</h1>
+        <p>本文档将介绍Prot Defender API的使用方法。</p>
+        <h2>API列表</h2>
+        <h3>获取版本信息</h3>
+        <p>请求地址：/api/version</p>
+        <p>请求方式：GET</p>
+        <p>请求参数：无</p>
+        <p>示例返回：</p>
+        <code>
+            {
+                "Version": "0.0.2",
+                "Name": "错误修复和模型更新",
+                "Note": "",
+                "DownloadUrl": "",
+                "ReleaseDate": "2025-02-10"
+            }
+        </code>
+        <p>返回描述：</p>
+        <table>
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td><b>属性</b></td>
+                    <td><b>值</b></td>
+            
+                </tr>
+                <tr>
+                    <td>Version</td>
+                    <td>最新版本号</td>
+
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>版本名称</td>
+                </tr>
+                <tr>
+                    <td>Note</td>
+                    <td>版本说明</td>
+                </tr>
+                <tr>
+                    <td>DownloadUrl</td>
+                    <td>版本下载地址</td>
+                </tr>
+                <tr>
+                    <td>ReleaseDate</td>
+                    <td>版本发布日期</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
