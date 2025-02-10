@@ -272,17 +272,24 @@
             <mdui-button slot="action" variant="text">不同意</mdui-button>
             <!-- <mdui-button slot="action" variant="tonal">下载程序</mdui-button> -->
             <mdui-button icon="download" slot="action" variant="tonal"
-                href="https://gh.llkk.cc/https://github.com/Prot-Security-Studio/Prot-Denfender-Core/releases/download/test-ver/prot.exe" target="_blank">同意并下载程序</mdui-button>
+                href="https://dav.prot.fun/d/C%3A/4pq57rf6ui/%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6--%E5%8D%A1%E5%93%87%E4%BC%8A/Prot%20Defender%E5%85%AC%E5%8E%95%E7%89%882.0.zip?sign=Wecy9NjocA6Ueper8XFHDWm8oAs7WAU1A1j0HXu0jAg=:0" target="_blank">同意并下载程序</mdui-button>
         </mdui-dialog>
 
 
         <mdui-button icon="download">下载程序</mdui-button>
-
+        <mdui-snackbar class="snackbar" closeable>Prot Defender 仍处于测试阶段，部分功能可能无法正常使用，敬请谅解！</mdui-snackbar>
         <script>
             const dialog = document.querySelector(".dialog-license");
+            const snackbar = document.querySelector(".snackbar");
             const openButton = dialog.nextElementSibling;
+            function showAgreement() {
+                dialog.open = true;
+                snackbar.open = true;
+            }
+            // function hideAgreement() {
 
-            openButton.addEventListener("click", () => dialog.open = true);
+
+            openButton.addEventListener("click", () => showAgreement());
 
             const closeButton = dialog.querySelector("mdui-button");
             closeButton.addEventListener("click", () => dialog.open = false);
