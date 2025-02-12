@@ -261,11 +261,20 @@
             </div>
             <mdui-button slot="action" variant="text">不同意</mdui-button>
             <!-- <mdui-button slot="action" variant="tonal">下载程序</mdui-button> -->
-            <mdui-button icon="download" slot="action" variant="tonal"
-                href="https://github.com/Prot-Security-Studio/Prot-Defender-Website/releases/download/1/Prot.Defender.0.8.zip" target="_blank">同意并下载云查杀程序</mdui-button>
-        
-        </mdui-dialog>
-
+                <mdui-button icon="computer" slot="action" variant="tonal"
+        href="https://github.com/Prot-Security-Studio/Prot-Defender-Website/releases/download/1/Prot.Defender.0.8-noserver.zip" 
+        target="_blank"
+        style="margin-left: 8px;">
+        同意并下载本地查杀版
+    </mdui-button>
+    <!-- 原有云查杀按钮 -->
+    <mdui-button icon="download" slot="action" variant="tonal"
+        href="https://github.com/Prot-Security-Studio/Prot-Defender-Website/releases/download/1/Prot.Defender.0.8.zip" 
+        target="_blank"
+        style="margin-left: 8px;">
+        同意并下载云查杀程序
+    </mdui-button>
+</mdui-dialog>
 
         <mdui-button icon="download">下载程序</mdui-button>
         <mdui-snackbar class="snackbar" closeable>Prot Defender 仍处于测试阶段，部分功能可能无法正常使用，敬请谅解！</mdui-snackbar>
