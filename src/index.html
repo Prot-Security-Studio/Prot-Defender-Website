@@ -158,9 +158,9 @@
 </head>
 
 <body>
-    
 
-    <mdui-navigation-drawer close-on-overlay-click close-on-esc id="drawer" modal>
+
+    <mdui-navigation-drawer close-on-overlay-click close-on-esc id="drawer">
         <mdui-list>
             <mdui-collapse accordion>
                 <mdui-collapse-item>
@@ -170,9 +170,6 @@
                     <mdui-list-item rounded href="#developers" slot="header" icon="code">开发团队</mdui-list-item>
 
                 </mdui-collapse-item>
-                <!-- <mdui-collapse-item>
-                    <mdui-list-item rounded href="./info.html" slot="header" icon="info">关于</mdui-list-item>
-                </mdui-collapse-item> -->
                 <mdui-collapse-item value="getting-started">
                     <mdui-list-item slot="header" rounded="" tabindex="0" alignment="center">友情链接
                         <mdui-icon slot="icon" name="favorite"></mdui-icon>
@@ -191,6 +188,7 @@
             </mdui-collapse>
         </mdui-list>
     </mdui-navigation-drawer>
+   
     
 
 
@@ -261,19 +259,27 @@
             </div>
             <mdui-button slot="action" variant="text">不同意</mdui-button>
             <!-- <mdui-button slot="action" variant="tonal">下载程序</mdui-button> -->
-                <mdui-button icon="computer" slot="action" variant="tonal"
+    <mdui-dropdown slot="action">
+        <mdui-button icon="download" slot="trigger">同意协议并下载</mdui-button>
+        <mdui-menu>
+            <mdui-menu-item icon="cloud">云查杀版本</mdui-menu-item>
+            <mdui-menu-item icon="computer">本地查杀版本</mdui-menu-item>
+        </mdui-menu>
+    </mdui-dropdown>
+    <!-- <mdui-button icon="computer" slot="action" variant="tonal"
         href="https://github.com/Prot-Security-Studio/Prot-Defender-Website/releases/download/1/Prot.Defender.0.8-noserver.zip" 
         target="_blank"
         style="margin-left: 8px;">
         同意并下载本地查杀版
-    </mdui-button>
+    </mdui-button> -->
     <!-- 原有云查杀按钮 -->
+<!-- 
     <mdui-button icon="download" slot="action" variant="tonal"
         href="https://github.com/Prot-Security-Studio/Prot-Defender-Website/releases/download/1/Prot.Defender.0.8.zip" 
         target="_blank"
         style="margin-left: 8px;">
         同意并下载云查杀程序
-    </mdui-button>
+    </mdui-button> -->
 </mdui-dialog>
 
         <mdui-button icon="download">下载程序</mdui-button>
@@ -352,8 +358,16 @@
 
     <script>
         let drawer = document.getElementById('drawer');
+        function openDrawer() {
+            if (drawer.open) {
+                drawer.open = false;
+            } else {
+                drawer.open = true;
+            }
+        }
+
         document.getElementById('menu').addEventListener('click', function () {
-            drawer.open = true;
+            openDrawer();
         });
     </script>
 </body>
